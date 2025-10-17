@@ -42,4 +42,29 @@ nestedArray = [
   [4, -10, 18, 21],
   [-72, -3, -17, -10],
 ];
-console.log(largestOfAll(nestedArray));
+// console.log(largestOfAll(nestedArray));
+
+/* A function to implement the slice and splice algorithm. It copies the arrayA into arrayB  starting from the index stated*/
+const frakenSplice = (arrayA, arrayB, index) => {
+  let arrayACopy = [...arrayA];
+  let arrayBCopy = [...arrayB];
+  let catchElementsBeforeIndex = [];
+  let catchElementsAfterIndex = [];
+  for (let i = 0; i < arrayBCopy.length; i++) {
+    if (i >= index) {
+      catchElementsAfterIndex.push(arrayBCopy[i]);
+    } else {
+      catchElementsBeforeIndex.push(arrayBCopy[i]);
+    }
+  }
+
+  for (let item of arrayACopy) catchElementsBeforeIndex.push(item);
+  for (let item of catchElementsAfterIndex) catchElementsBeforeIndex.push(item);
+  return catchElementsBeforeIndex;
+};
+
+let arrayA = [1, 2, 3, 4];
+let arrayB = [3, 5];
+index = 1;
+result = frakenSplice(arrayA, arrayB, index);
+console.log(result);
