@@ -4,14 +4,22 @@ This is a collection of functions that demonstrate clean code and code quality t
 
 // A function that returns an array consisting of the largest number from each sub-array.
 largestOfAll = (arrayOfArrays) => {
-    let largestOfAll = arrayOfArrays[0][0]; // initialize maxValue with the first item of first array
+    let arrayOfLargestMembers = []; // initialize the array tha carries largest value from each sub-array
     for (array of arrayOfArrays) {
-        for(item of array){
-            if(item > largestOfAll) largestOfAll = item;
+        let largestMember = array[0]; // Initialize largest member with the first element of sub-array
+        for (item of array) {
+            if (item > largestMember) {
+                largestMember = item;
+            }
         }
+        arrayOfLargestMembers.push(largestMember); 
     }
-    return largestOfAll;
+    return arrayOfLargestMembers;
 }
 
-nestedArray = [[2, 5, 10], [3, 9, 8], [6, 1, 2], [3, 5, 21], [7, 7.5, 1.5], [9, 12, 20.9]]
+nestedArray = [[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]];
+nestedArray = [[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]];
+nestedArray = [[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]];
+nestedArray = [[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]
 console.log(largestOfAll(nestedArray));
+
