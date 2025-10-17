@@ -50,13 +50,8 @@ const frakenSplice = (arrayA, arrayB, index) => {
   let arrayBCopy = [...arrayB];
   let catchElementsBeforeIndex = [];
   let catchElementsAfterIndex = [];
-  for (let i = 0; i < arrayBCopy.length; i++) {
-    if (i >= index) {
-      catchElementsAfterIndex.push(arrayBCopy[i]);
-    } else {
-      catchElementsBeforeIndex.push(arrayBCopy[i]);
-    }
-  }
+  for (let i = 0; i < arrayBCopy.length; i++) if (i >= index) catchElementsAfterIndex.push(arrayBCopy[i]); else catchElementsBeforeIndex.push(arrayBCopy[i]);
+  
 
   for (let item of arrayACopy) catchElementsBeforeIndex.push(item);
   for (let item of catchElementsAfterIndex) catchElementsBeforeIndex.push(item);
