@@ -60,8 +60,8 @@ const frakenSplice = (arrayA, arrayB, index) => {
 };
 
 let arrayA = [1, 2, 3, 4];
-let arrayB = [3, 5];
-let index = 1;
+let arrayB = [];
+let index = 0;
 let result = frakenSplice(arrayA, arrayB, index);
 console.log(result);
 
@@ -109,3 +109,6 @@ console.log("");
 console.log("");
 console.log("====== First Element Finder ====== ");
 console.log(output);
+
+/*
+ */
