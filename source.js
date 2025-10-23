@@ -111,4 +111,25 @@ console.log("====== First Element Finder ====== ");
 console.log(output);
 
 /*
+Building a pyramid generator
+Objective here is to create a function named pyramid that takes three arguments.
+First argument is a string representing the pattern character to repeat in the
+pyramid. Second argument is an integer representing the no. of rows in the pyramid.
+Third argument is a boolean value
+The pyramid function returns a string in which the pattern character is repeated
+and arranged to forma pyramid having the vertex facing upwards when the third argument is false and downwards otherwise
+Each row of vertex has 2 characters more than the previous
+Each row starts with a number of spaces sufficient to put the center character of each row in the same column and no spaces at the end of each row.
+The pyramid should start and end with a newline character.
  */
+
+const pyramid = (pattern, nrows, isVertexUpwardFacing) => {
+
+  return {pattern: pattern, nrows: nrows, upward_facing_vertex: isVertexUpwardFacing};
+
+}
+
+pattern = "o";
+nrows = 3;
+isvertex = true;
+console.log(pyramid(pattern, nrows, isvertex));
