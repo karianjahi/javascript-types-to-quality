@@ -69,7 +69,7 @@ A tiny grading system composed of:
 Clone & run with Node:
 
 ```bash
-git clone https://github.com/<your-username>/javascript-types-to-quality.git
+git clone https://github.com/karianjahi/javascript-types-to-quality.git
 cd javascript-types-to-quality
 node source.js
 ```
