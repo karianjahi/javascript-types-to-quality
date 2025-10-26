@@ -123,13 +123,83 @@ Each row starts with a number of spaces sufficient to put the center character o
 The pyramid should start and end with a newline character.
  */
 
-const pyramid = (pattern, nrows, isVertexUpwardFacing) => {
+const pyramid = (pattern, nrows, isVertexFacingDownwards) => {
+  let catchRowContent = [];
+  let rowContent = pattern;
+  for (let i = 0; i < nrows; i++) {
+    catchRowContent.push(rowContent);
+    rowContent += pattern.repeat(2);
+  }
 
-  return {pattern: pattern, nrows: nrows, upward_facing_vertex: isVertexUpwardFacing};
+  let maxRowSpace = rowContent.length-2;
+  let requiredContent = [];
+  for (let item of catchRowContent) {
+    let newItem = " ".repeat((maxRowSpace-1)/2) + item + " ".repeat((maxRowSpace-1)/2)
+    requiredContent.push(newItem);
+    maxRowSpace -= 2;
+  }
+  console.log(requiredContent);
+  let example = "\n   o\n  ooo\n ooooo\nooooooo\n";
+  console.log(example.split("\n"))
+
+  // create the pyramid facing up or down
+  if (isVertexFacingDownwards) requiredContent = requiredContent.reverse() // only when vertex must face downwards
+  
+  let pyramidStructure = requiredContent.join("\n");
+  return pyramidStructure;
+};
+
+pattern = "o";
+nrows = 4;
+isVertexFacingDownwards = false;
+console.log("");
+console.log("");
+console.log("");
+console.log("============== Pyramid ====================");
+console.log(pyramid(pattern, nrows, isVertexFacingDownwards));
+
+
+// Building a Gradebook App
+// First create a function that gets average of test scores
+const getAverage = (testScoresArray) => {
+  let AverageScore = 0;
+  for (let testScore of testScoresArray) AverageScore += testScore;
+  return AverageScore / testScoresArray.length;
+}
+
+// Next, create a function that takes a students score as a parameter and returns the grade.
+/*
+Score Range	Grade
+100	"A+"
+90 - 99	"A"
+80 - 89	"B"
+70 - 79	"C"
+60 - 69	"D"
+0 - 59	"F"
+*/
+
+const getGrade = (studentScore) => {
+  if (studentScore === 100) return "A+";
+  if (studentScore < 100 && studentScore >= 90) return "A";
+  if (studentScore < 90 && studentScore >= 80) return "B";
+  if (studentScore < 80 && studentScore >= 70) return "C";
+  if (studentScore < 70 && studentScore >= 60) return "D";
+  return "F"
+}
+
+// Another function that checks if a student has passed. Any grade other than F passes
+const hasPassingGrade = (studentScore) => {
+  const grade = getGrade(studentScore);
+  return grade !== "F";
 
 }
 
-pattern = "o";
-nrows = 3;
-isvertex = true;
-console.log(pyramid(pattern, nrows, isvertex));
+// A function that returns a message from an array of scores and a student score.
+const studentMsg = (studentScores, studentScore) => {
+  const averageScore = getAverage(studentScores);
+  const studentGrade = getGrade(studentScore);
+  if (hasPassingGrade(studentScore)) return `Class average: ${averageScore}. Your grade: ${studentGrade}. You passed the course.`
+  return  `Class average: ${averageScore}. Your grade: ${studentGrade}. You failed the course.`
+}
+
+console.log(studentMsg([58, 98, 71, 63, 19, 28, 51, 78, 86, 91, 90, 88, 77, 91, 65, 63, 61, 68, 30, 17, 53], 28));
