@@ -206,4 +206,24 @@ const studentMsg = (studentScores, studentScore) => {
   return  `Class average: ${averageScore}. Your grade: ${studentGrade}. You failed the course.`
 }
 
-
+// A function that converts a string to title case where each first letter in a word is capitalized and the rest is lower case
+const titleCase = (aString) => {
+  const WordsArray = aString.split(" ");
+  let wordArrayCapitalized = [];
+  for (let word of WordsArray) {
+    let  letterSplits = word.split("");
+    let newCapitalizedWord = [];
+    for (let i=0; i<letterSplits.length; i++) {
+      if (i===0) {
+        newCapitalizedWord[i] = letterSplits[i].toUpperCase();
+      } else {
+        newCapitalizedWord[i] = letterSplits[i]
+      }
+    }
+    newCapitalizedWord = newCapitalizedWord.join("");
+    wordArrayCapitalized.push(newCapitalizedWord);
+  }
+  return wordArrayCapitalized.join(" ");
+}
+const myString = "my girlfried refused to bring me the money from the bank account"
+console.log(titleCase(myString));
