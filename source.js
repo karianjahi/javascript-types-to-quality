@@ -208,6 +208,7 @@ const studentMsg = (studentScores, studentScore) => {
 
 // A function that converts a string to title case where each first letter in a word is capitalized and the rest is lower case
 const titleCase = (aString) => {
+  aString = aString.toLowerCase(); // make sure we are starting from all lower case
   const WordsArray = aString.split(" ");
   let wordArrayCapitalized = [];
   for (let word of WordsArray) {
@@ -225,5 +226,5 @@ const titleCase = (aString) => {
   }
   return wordArrayCapitalized.join(" ");
 }
-const myString = "my girlfried refused to bring me the money from the bank account"
+const myString = "my girlfried refused to brIng me the mOnEy from the bank account"
 console.log(titleCase(myString));
