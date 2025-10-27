@@ -58,13 +58,13 @@ const frakenSplice = (arrayA, arrayB, index) => {
   console.log({ "first array": arrayA, "second array": arrayB });
   return catchElementsBeforeIndex;
 };
-
+/* Testing
 let arrayA = [1, 2, 3, 4];
 let arrayB = [];
 let index = 0;
 let result = frakenSplice(arrayA, arrayB, index);
 console.log(result);
-
+*/
 /* 
 Building a function that looks through an array and returns the first element that passes a test function known as the truth test.
 The function would iterate through the array and test each element using the provided test function. At the end, it would return the first element where the test function returns `true`
@@ -101,6 +101,7 @@ const findElement = (anArray, func) => {
   return undefined;
 };
 
+/* Testing
 let func = findEvenNumber;
 let array = [7, 8, 9, 1, 5];
 let output = findElement(array, func);
@@ -109,6 +110,7 @@ console.log("");
 console.log("");
 console.log("====== First Element Finder ====== ");
 console.log(output);
+*/
 
 /*
 Building a pyramid generator
@@ -149,6 +151,7 @@ const pyramid = (pattern, nrows, isVertexFacingDownwards) => {
   return pyramidStructure;
 };
 
+/* Testing 
 pattern = "o";
 nrows = 4;
 isVertexFacingDownwards = false;
@@ -157,6 +160,7 @@ console.log("");
 console.log("");
 console.log("============== Pyramid ====================");
 console.log(pyramid(pattern, nrows, isVertexFacingDownwards));
+*/
 
 
 // Building a Gradebook App
@@ -184,7 +188,7 @@ const getGrade = (studentScore) => {
   if (studentScore < 90 && studentScore >= 80) return "B";
   if (studentScore < 80 && studentScore >= 70) return "C";
   if (studentScore < 70 && studentScore >= 60) return "D";
-  return "F"
+  return "F";
 }
 
 // Another function that checks if a student has passed. Any grade other than F passes
@@ -202,4 +206,4 @@ const studentMsg = (studentScores, studentScore) => {
   return  `Class average: ${averageScore}. Your grade: ${studentGrade}. You failed the course.`
 }
 
-console.log(studentMsg([58, 98, 71, 63, 19, 28, 51, 78, 86, 91, 90, 88, 77, 91, 65, 63, 61, 68, 30, 17, 53], 28));
+
